@@ -3,12 +3,15 @@
 using namespace std;
 
 search::search(){
+int i;
+
+	for (i = 0; i < 20; i++) {
+		array[i] = i;
+	}
 
 }
 
 void search::linear(int num){
-
-	cin >> num;
 
 	int i;
 
@@ -20,6 +23,8 @@ void search::linear(int num){
 }
 
 int main() {
-
+int num = 6;
+	search linear;
+	linear.linear(num);
 	return 0;
 }
