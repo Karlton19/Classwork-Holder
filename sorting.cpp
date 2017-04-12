@@ -17,7 +17,8 @@ void sorting::fillArray(){
 	srand(time(NULL));
 	int i;
 	for (i = 0; i < 20; i++) {
-		array[i] = rand();
+		array[i] = rand() % 60;
+		bubble_array[i] = rand() % 60;
 
 	}
 }
@@ -36,17 +37,50 @@ void sorting::SelectionSort() {
 
 int i = 0;
 int j = 0;
-int min = 10000000;
-int new_min;
-	for(i = 0; i > 20; i++) {
-		if(array[i] > min);
-			new_min = array[i];
-		for(j = 0; j > 20; j++) {
-			if (array_sorted[j] == new_min);
-				cout << array_sorted[j] << "\n";
+int min = 100;
+int min_position;
 
+
+cout << "\n";
+	for(i = 0; i < 20; i++) {
+		for(j = 0; j < 20; j++){
+			if(array[j] < min){
+				min = array[j];
+				min_position = j;
+			}
 		}
 
+		array[min_position] = 1000;
+		array_sorted[i] = min;
+		cout << array_sorted[i] << "\n";
+		min = 100;
+	}
+	//put minimum into a new array (first time: 0, second time: 1, etc...)
+
+
+}
+
+
+void sorting::BubbleSort() {
+	int swapped = 0;
+	int i;
+	int temp_min;
+
+	while (swapped == 0) {
+		swapped = 1;
+		for(i = 0; i < 20; i++){
+			if(bubble_array[i] > bubble_array[i+1]) {
+				swapped = 0;
+				temp_min = bubble_array[i+1];
+				bubble_array[i+1] = bubble_array[i];
+				bubble_array[i] = temp_min;
+			}
+
+		}
+	}
+	cout << "\n";
+	for (i = 0; i < 20; i++) {
+		cout << bubble_array[i] << "\n";
 	}
 }
 
@@ -59,5 +93,8 @@ int main() {
 	sort.toString();
 	//TODO: Sort the array using selection sort
 	sort.SelectionSort();
+
+	sort.BubbleSort();
+
 	return 0;
 }
