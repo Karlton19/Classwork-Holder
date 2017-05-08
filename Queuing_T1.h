@@ -3,6 +3,7 @@ class theory1{
         public:
 		theory1();
 		void fillArray();
+		void Run();
 		void Pop();
         private:
 		int a1[100];
