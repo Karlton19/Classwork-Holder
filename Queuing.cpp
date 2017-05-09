@@ -24,14 +24,13 @@ theory2::theory2() {
 
 
 
-int GetOpen(){
-
-return open;
+int cashier::GetOpen(){
+	return open;
 
 }
 
 
-void ChangeStatus(){
+void cashier::ChangeStatus(){
 
 
 }
@@ -57,8 +56,19 @@ int i;
 int j;
 int k;
 int l;
+int a1_sum = 0;
+int a2_sum = 0;
+int a3_sum = 0;
+
+
 
 for (i = 0; i < 100; i++) {
+	a1_sum = a1_sum + a1[i];
+	a2_sum = a2_sum + a2[i];
+	a3_sum = a3_sum + a3[i];
+
+
+
 
 	for(j = 0; j < a1[i]; j++) {
 
@@ -74,7 +84,20 @@ for (i = 0; i < 100; i++) {
 		}
 
 
-	}
+}
+
+if (a1_sum > a2_sum || a1_sum > a3_sum){
+	cout << a1_sum;
+
+}
+
+if (a2_sum > a1_sum || a2_sum > a3_sum){
+	cout << a2_sum;
+}
+
+if (a3_sum > a1_sum || a3_sum > a2_sum){
+	cout << a3_sum;
+}
 
 }
 
@@ -82,9 +105,6 @@ for (i = 0; i < 100; i++) {
 void theory1::Pop(){
 
 }
-
-
-
 
 
 void theory2::fillArray(){
@@ -128,6 +148,10 @@ void theory2::Pop(){
 
 
 int main() {
+theory1 theory1;
+theory1.fillArray();
+
+
 clock_t time1 = clock();
 //.....
 clock_t time2 = clock();
