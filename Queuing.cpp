@@ -10,7 +10,7 @@ using namespace std;
 
 //Constructor
 cashier::cashier() {
-
+	open = 1;
 }
 
 theory1::theory1() {
@@ -32,6 +32,13 @@ int cashier::GetOpen(){
 
 void cashier::ChangeStatus(){
 
+if (open == 1){
+	open = 0;
+}
+
+else{
+	open = 1;
+}
 
 }
 
@@ -86,25 +93,23 @@ for (i = 0; i < 100; i++) {
 
 }
 
-if (a1_sum > a2_sum || a1_sum > a3_sum){
-	cout << a1_sum;
+if (a1_sum > a2_sum && a1_sum > a3_sum){
+	cout << a1_sum << "\n";
 
 }
 
-if (a2_sum > a1_sum || a2_sum > a3_sum){
-	cout << a2_sum;
+if (a2_sum > a1_sum && a2_sum > a3_sum){
+	cout << a2_sum << "\n";
 }
 
-if (a3_sum > a1_sum || a3_sum > a2_sum){
-	cout << a3_sum;
+if (a3_sum > a1_sum && a3_sum > a2_sum){
+	cout << a3_sum << "\n";
 }
 
 }
 
 
-void theory1::Pop(){
 
-}
 
 
 void theory2::fillArray(){
@@ -122,27 +127,41 @@ void theory2::Run(){
 int front;
 int back;
 int i;
-int j;
+int p1_time;
+int p2_time;
+int p3_time;
+int a1_sum = 0;
+//Three Cashier objects
+cashier Josh;
+cashier Tom;
+cashier Tim;
+
+while (i < 300){
+	if (Josh.GetOpen() == 1){
+		p1_time = a1[i];
+		i++;
+	}
+
+	if (Tom.GetOpen() == 1){
+		p2_time = a1[i];
+		i++;
+	}
 
 
-for (i = 0; i < 1000; i++) {
+	if (Tim.GetOpen() == 1){
+		p3_time = a1[i];
+		i++;
+	}
+}
 
-        for(j = 0; j < a1[i]; j++) {
+cout << a1_sum << "\n";
 
-                }
 
 }
 
 
 
-}
 
-
-
-
-void theory2::Pop(){
-
-}
 
 
 
@@ -150,13 +169,14 @@ void theory2::Pop(){
 int main() {
 theory1 theory1;
 theory1.fillArray();
-
+theory2 theory2;
+theory2.fillArray();
 
 clock_t time1 = clock();
-//.....
+theory1.Run();
 clock_t time2 = clock();
-
-
+theory2.Run();
+// cout << "Theory one took: " << time2 - time 1 << ticks;
 	return 0;
 }
 

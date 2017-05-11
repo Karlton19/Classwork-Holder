@@ -4,7 +4,6 @@ class theory1{
 		theory1();
 		void fillArray();
 		void Run();
-		void Pop();
         private:
 		int a1[100];
 		int a2[100];
